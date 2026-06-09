@@ -1,10 +1,12 @@
 {
     "servers": {
         "rpg-dice-roller": {
+            "type": "stdio",
             "command": "/Users/caioar/Documents/GitHub/rpg-ai/mcp-server/.venv/bin/python3",
             "args": [
                 "/Users/caioar/Documents/GitHub/rpg-ai/mcp-server/server.py"
             ]
         }
-    }
+    },
+    "inputs": []
 }

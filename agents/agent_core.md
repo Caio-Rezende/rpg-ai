@@ -6,9 +6,17 @@ This file defines the core prompt structure and logic for the AI agents. It serv
 
 ## 🧠 Agent Roles
 
-*   **NPC Agent:** Responsible for generating actions, dialogue, and motivations for a specific NPC.
-*   **Environment Agent:** Responsible for describing the immediate surroundings and reacting to actions.
-*   **Narrative Agent:** Responsible for maintaining the overall tone and pacing of the scene.
+To maintain a clear distinction between game mechanics and character performance, we use two distinct layers of agency:
+
+### 1. The Game Master (GM) Agent
+The **GM Agent** is the primary interface for the user (DM). It understands the `rules/core_rules.md` and manages the high-level state of the game.
+*   **Responsibilities:** Evaluating skill checks, managing combat turns, tracking environmental changes, and ensuring all actions adhere to the core rules.
+*   **Context:** Uses the `summary.md`, current location, encounter details, and global game state.
+
+### 2. The Character (Sub-Agent) Layer
+When a character needs to act or speak, the GM Agent invokes a **Character Sub-Agent**. This limits the context to prevent "hallucinating" knowledge from other characters or the wider world that they shouldn't know.
+*   **Responsibilities:** Generating dialogue, expressing unique personality traits, and stating intentions based on their specific goals.
+*   **Context:** Uses only their individual profile (e.g., `heroes/bram.md`) and the immediate scene description provided by the GM.
 
 ## ⚙️ Prompting Guidelines
 

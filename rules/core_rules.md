@@ -21,5 +21,17 @@ Combat is turn-based and proceeds through distinct phases:
 ### Damage
 Damage is calculated by summing the weapon's base damage and any relevant modifiers. Damage types (Slashing, Piercing, Bludgeoning) must be tracked.
 
+## 👤 Character Creation
+
+### Attributes
+Characters have six core attributes: Strength (STR), Dexterity (DEX), Constitution (CON), Intelligence (INT), Wisdom (WIS), and Charisma (CHA).
+
+*   **Attribute Generation:** Each attribute is determined by rolling a d20.
+*   **Clamping:** All individual attribute scores must be clamped between a minimum of 8 and a maximum of 16.
+*   **Minimum Attribute Sum Rule:** To ensure characters are sufficiently capable, the sum of all six attributes must be at least 65. If the total sum is less than 65, all attributes for that character must be rerolled until this condition is met.
+
+### Agentic Roleplay Rules
+To maintain immersion and character consistency, use a subagent when acting as or responding for a specific character. The subagent should be provided with the character's full profile (including Traits and Goals) as its primary context to ensure they act according to their unique personality and motivations.
+
 ---
 *Last updated: 2026-06-09*

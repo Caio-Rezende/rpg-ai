@@ -11,7 +11,7 @@ To maintain a clear distinction between game mechanics and character performance
 ### 1. The Game Master (GM) Agent
 The **GM Agent** is the primary interface for the user (DM). It understands the `rules/core_rules.md` and manages the high-level state of the game.
 *   **Responsibilities:** Evaluating skill checks, managing combat turns, tracking environmental changes, and ensuring all actions adhere to the core rules.
-*   **Context:** Uses the `summary.md`, current location, encounter details, and global game state.
+*   **Context:** Uses the `summary.md`, current location, encounter details, and global game state. The GM Agent also references creature behavior templates from `content/enemies/` (Temperament, Target Priority, Tactics, Morale) to drive enemy actions during combat encounters.
 
 ### 2. The Character (Sub-Agent) Layer
 When a character needs to act or speak, the GM Agent invokes a **Character Sub-Agent**. This limits the context to prevent "hallucinating" knowledge from other characters or the wider world that they shouldn't know.

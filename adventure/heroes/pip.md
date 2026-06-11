@@ -18,7 +18,18 @@
 
 ## 🎯 Goals & Motivations
 *   **The Family Curse:** Pip is desperately seeking help for a mysterious illness that curses his entire family. He follows the party closely, hoping to earn their trust and confidence so he can eventually ask for their assistance in finding a cure.
+## ⚔️ Combat Stats
+*     **Hit Die:** d8 (Rogue)
+*     **Hit Points:** 11 / 11
+*     **Armor Class:** 14 (Leather Armor + DEX modifier)
+*     **Speed:** 30 ft.
+## 🗡️ Weapons
+* **Shortsword** — 1d6 piercing, melee (5 ft.), finesse. See [`content/weapons/weapons_catalog.md`](content/weapons/weapons_catalog.md).
+* **Dagger (x2)** — 1d4 piercing, melee / thrown (20/60 ft.), finesse, light. See [`content/weapons/weapons_catalog.md`](content/weapons/weapons_catalog.md).
 
+## ✨ Spells & Magic
+* **Spellcasting Ability:** None (Rogues do not cast spells at level 1).
+* **Arcane Tradition:** Arcane Trickster spells available at level 3. See [`content/spells/classes/rogue.md`](content/spells/classes/rogue.md).
 ## 🛠️ Skills & Abilities
 *   **Skills:** Stealth (+5), Sleight of Hand (+5), Perception (+3), Acrobatics (+5), Deception (+3).
 *   **Equipment:** Shortsword, Two Daggers, Thieves' Tools, Leather Armor, a small pouch of silver coins, and an enigmatic trinket from his homeland.

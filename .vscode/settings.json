@@ -3,6 +3,10 @@
         "/^python3 /Users/caioar/Documents/GitHub/rpg-ai/mcp-server/dice_cli\\.py (\\d+d\\d+\\s*)+$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^python3 mcp-server/test_dice\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }

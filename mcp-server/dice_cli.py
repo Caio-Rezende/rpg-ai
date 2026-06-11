@@ -15,6 +15,8 @@ def roll_dice(dice_notation):
     count = int(count_str) if count_str else 1
     sides = int(sides_str)
     
+    if count < 1:
+        raise ValueError("Number of dice must be at least 1.")
     if sides < 1:
         raise ValueError("Number of sides must be at least 1.")
         
@@ -25,7 +27,7 @@ if __name__ == "__main__":
         print("Usage: python dice_cli.py <notation> [notation...]")
         print("Example: python dice_cli.py 4d6 1d20")
         sys.exit(1)
-        
+    
     all_results = []
     for notation in sys.argv[1:]:
         try:

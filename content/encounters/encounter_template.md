@@ -9,7 +9,7 @@ This template is used to structure a challenge or event that the party must face
 *   **Title:** A catchy name for the encounter.
 *   **Type:** (e.g., Combat, Social, Puzzle, Environmental).
 *   **Setup:** The initial description and context for the encounter. This sets the scene.
-*   **Participants:** List of NPCs or creatures involved, including their template references (e.g., *[NPC: Guard Captain]*).
+*    **Participants:** List of NPCs or creatures involved. For enemies, use mob entries from [`content/enemies/`](content/enemies/) (e.g., *[Mob: Gloom Spider ×3]*). For NPCs, use character templates from [`content/characters/`](content/characters/). See [`content/enemies/mob_template.md`](content/enemies/mob_template.md) for creating new creatures.
 *   **Goal/Challenge:** What the party must achieve or overcome. This is the core objective.
 *   **Rules/Mechanics:** Specific rules from `rules/core_rules.md` that apply (e.g., "Requires a successful DC 15 Wisdom (Perception) check to spot").
 *   **Resolution Options:** Potential outcomes based on player actions, including potential failure states.

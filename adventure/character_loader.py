@@ -1,12 +1,5 @@
 #!/usr/bin/env python3
-"""Load character and enemy markdown files into structured dicts.
-
-Usage:
-    python3 character_loader.py --load-character <path>
-    python3 character_loader.py --load-party <heroes_dir>
-    python3 character_loader.py --summary <heroes_dir>
-    python3 character_loader.py --load-enemy <path>
-"""
+"""Load character and enemy markdown files into structured dicts."""
 
 import argparse
 import glob
@@ -15,14 +8,12 @@ import os
 import re
 
 
-def compute_modifier(score: int) -> int:
-     """Compute skill modifier from attribute score, clamped to [-3, +5]."""
+def compute_modifier(score):
     mod = (score // 2) - 10
     return max(-3, min(5, mod))
 
 
-def parse_stats(text: str) -> dict[str, int]:
-     """Extract core stats from markdown. Handles: * **Strength (STR):** 15"""
+def parse_stats(text):
     stats = {}
     pattern = r'\*\s*\*\*(?:[A-Za-z]+ )?\((ST|STR|DE|DEX|CO|CON|IN|INT|WI|WIS|CH|CHA)\)[^:]*:\*\*\s*(\d+)'
     for line in text.split("\n"):
@@ -30,13 +21,12 @@ def parse_stats(text: str) -> dict[str, int]:
         if m:
             abbrev = m.group(1).upper()
             map_ = {"ST": "STR", "DE": "DEX", "CO": "CON", "IN": "INT",
-                     "WI": "WIS", "CH": "CHA"}
+                    "WI": "WIS", "CH": "CHA"}
             stats[map_.get(abbrev, abbrev)] = int(m.group(2))
     return stats
 
 
-def parse_line(text: str, pattern: str) -> str | None:
-     """Find and return the text after a bold label on a markdown bullet line."""
+def parse_line(text, pattern):
     for line in text.split("\n"):
         m = re.search(r'\*\s*' + pattern + r':\*\*\s*(.+)', line)
         if m:
@@ -44,8 +34,7 @@ def parse_line(text: str, pattern: str) -> str | None:
     return None
 
 
-def parse_section(text: str, header: str) -> str:
-     """Extract the body of a ## section. Returns empty string if not found."""
+def parse_section(text, header):
     lines = text.split("\n")
     in_section = False
     section_lines = []
@@ -63,8 +52,7 @@ def parse_section(text: str, header: str) -> str:
     return "\n".join(section_lines)
 
 
-def parse_skills(section_text: str) -> dict[str, int]:
-     """Parse skill list from Skills & Abilities section."""
+def parse_skills(section_text):
     skills = {}
     for line in section_text.split("\n"):
         m = re.search(r'\*\s*(?:\*\*)?Skills:\*\*\s*(.+)', line)
@@ -77,8 +65,7 @@ def parse_skills(section_text: str) -> dict[str, int]:
     return skills
 
 
-def parse_equipment(section_text: str) -> list[str]:
-     """Parse equipment list from Skills & Abilities section."""
+def parse_equipment(section_text):
     for line in section_text.split("\n"):
         m = re.search(r'\*\s*(?:\*\*)?Equipment:\*\*\s*(.+)', line)
         if m:
@@ -87,8 +74,7 @@ def parse_equipment(section_text: str) -> list[str]:
     return []
 
 
-def parse_weapons(section_text: str) -> list[dict]:
-     """Parse weapon entries from Weapons section."""
+def parse_weapons(section_text):
     weapons = []
     for line in section_text.split("\n"):
         m = re.match(r'\s*\*\s*\*\*([^*]+)\*\*\s*[—–]\s*(.+)', line)
@@ -108,17 +94,16 @@ def parse_weapons(section_text: str) -> list[dict]:
     return weapons
 
 
-def parse_spells(section_text: str) -> dict:
-     """Parse spells & magic section."""
+def parse_spells(section_text):
     spells = {
-         "spellcasting_ability": None,
-         "spell_save_dc": None,
-         "spell_attack_bonus": None,
-         "cantrips": [],
-         "level_1_spells": [],
-         "spell_slots": {},
-         "domain": None,
-     }
+        "spellcasting_ability": None,
+        "spell_save_dc": None,
+        "spell_attack_bonus": None,
+        "cantrips": [],
+        "level_1_spells": [],
+        "spell_slots": {},
+        "domain": None,
+    }
 
     for line in section_text.split("\n"):
         dc_m = re.search(r'\*\s*(?:\*\*)?Spell Save DC:\*\*\s*(.+)', line)
@@ -161,8 +146,7 @@ def parse_spells(section_text: str) -> dict:
     return spells
 
 
-def load_character(filepath: str) -> dict:
-     """Parse a hero markdown file into a structured character dict."""
+def load_character(filepath):
     with open(filepath, "r") as f:
         raw = f.read()
 
@@ -212,25 +196,24 @@ def load_character(filepath: str) -> dict:
     goals_text = parse_section(raw, "Goals & Motivations")
 
     return {
-         "name": name,
-         "race_class": race_class,
-         "level": level,
-         "stats": stats,
-         "modifiers": {k: compute_modifier(v) for k, v in stats.items()},
-         "traits": {"appearance": appearance, "personality": personality},
-         "goals": goals_text.strip(),
-         "combat": {"hit_die": hit_die, "hp_current": hp_current, "hp_max": hp_max,
-                     "ac": ac, "speed": speed},
-         "weapons": weapons,
-         "spells": spells,
-         "skills": skills,
-         "equipment": equipment,
-         "raw_md": raw,
-     }
+        "name": name,
+        "race_class": race_class,
+        "level": level,
+        "stats": stats,
+        "modifiers": {k: compute_modifier(v) for k, v in stats.items()},
+        "traits": {"appearance": appearance, "personality": personality},
+        "goals": goals_text.strip(),
+        "combat": {"hit_die": hit_die, "hp_current": hp_current, "hp_max": hp_max,
+                    "ac": ac, "speed": speed},
+        "weapons": weapons,
+        "spells": spells,
+        "skills": skills,
+        "equipment": equipment,
+        "raw_md": raw,
+    }
 
 
-def load_enemy(filepath: str) -> dict:
-     """Parse an enemy markdown file into a structured dict."""
+def load_enemy(filepath):
     with open(filepath, "r") as f:
         raw = f.read()
 
@@ -242,11 +225,10 @@ def load_enemy(filepath: str) -> dict:
             break
 
     enemy = {"name": name, "type": "", "cr": 1, "group_size": 1,
-              "ac": 10, "hp_current": 10, "hp_max": 10, "speed": 30,
-              "size": "", "alignment": "", "attacks": [], "behavior": {},
-              "raw_md": raw}
+             "ac": 10, "hp_current": 10, "hp_max": 10, "speed": 30,
+             "size": "", "alignment": "", "attacks": [], "behavior": {},
+             "raw_md": raw}
 
-     # Parse metadata lines: **Type:** X | **CR:** Y | **Group Size:** Z
     for line in raw.split("\n"):
         type_m = re.search(r'\*\*Type:\*\*\s*(.+?)(?:\s*\|\s*$)', line)
         if type_m:
@@ -276,15 +258,13 @@ def load_enemy(filepath: str) -> dict:
         if size_m:
             enemy["size"] = size_m.group(1).strip()
 
-     # Parse attacks section
     atk_section = parse_section(raw, "Attacks")
     for line in atk_section.split("\n"):
         am = re.match(r'\s*\*\s*\*\*([^*]+)\*\*\s*(.+)', line)
         if am:
             enemy["attacks"].append({"name": am.group(1).strip(),
-                                      "detail": am.group(2).strip()})
+                                     "detail": am.group(2).strip()})
 
-     # Parse behavior section
     beh_section = parse_section(raw, "Behavior")
     for line in beh_section.split("\n"):
         bm = re.search(r'\*\s*(?:\*\*)?(\w+)\s*:\*\*\s*(.+)', line)
@@ -294,20 +274,19 @@ def load_enemy(filepath: str) -> dict:
     return enemy
 
 
-def load_party(heroes_dir: str) -> list[dict]:
-     """Load all .md files in a heroes directory."""
+def load_party(heroes_dir):
     chars = []
     for fpath in sorted(glob.glob(os.path.join(heroes_dir, "*.md"))):
         chars.append(load_character(fpath))
     return chars
 
 
-def party_summary(party: list[dict]) -> str:
-     """Return a brief party summary string."""
+def party_summary(party):
     lines = []
     for c in party:
-        hp = f"{c['combat']['hp_current']}/{c['combat']['hp_max']}"
-        lines.append(f"  - **{c['name']}** ({c['race_class']}) — HP: {hp}, AC: {c['combat']['ac']}")
+        hp = "{}\{}".format(c['combat']['hp_current'], c['combat']['hp_max'])
+        lines.append("- **{}** ({}) — HP: {}, AC: {}".format(
+            c['name'], c['race_class'], hp, c['combat']['ac']))
     return "\n".join(lines)
 
 

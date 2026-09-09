@@ -1,35 +1,38 @@
-# Character Template
+# 👤 Character Ground Truth Template
 
-## 👤 Character Profile
+This document provides the a high-fidelity persona definition. Agents must treat this as an immutable source of truth for their character's identity and capabilities.
 
-This template is used to define a Non-Player Character (NPC) or a player character (PC).
+## 📋 Metadata
+- **Internal ID**: `char_[unique_id]`
+- **Name**: [Full Name]
+- **Race/Class**: [e.g., High Elf Wizard]
+- **Alignment**: [e.g., Chaotic Good]
 
-## � Core Stats
-*   **Strength (STR):** [Value] (Determines physical power and melee damage).
-*   **Dexterity (DEX):** [Value] (Determines agility, ranged accuracy, and stealth).
-*   **Constitution (CON):** [Value] (Determines health and endurance).
-*   **Intelligence (INT):** [Value] (Determines knowledge and magical aptitude).
-*   **Wisdom (WIS):** [Value] (Determines perception and common sense).
-*   **Charisma (CHA):** [Value] (Determines social influence and leadership).
+## 📊 Mechanical Attributes
+| Attribute | Value | Modifier |
+| :--- | :--- | :--- |
+| **Strength (STR)** | [Value] | [Mod] |
+| **Dexterity (DEX)** | [Value] | [Mod] |
+| **Constitution (CON)** | [Value] | [Mod] |
+| **Intelligence (INT)** | [Value] | [Mod] |
+| **Wisdom (WIS)** | [Value] | [Mod] |
+| **Charisma (CHA)** | [Value] | [Mod] |
 
-## 📜 Traits
-*   **Race/Class:** (e.g., Elf Rogue, Dwarf Warrior).
-*   **Appearance:** A vivid description of their look.
-*   **Personality:** Core traits and motivations.
+## 🛠️ Skill Proficiency
+- **Skill A**: [Modifier] (e.g., Stealth +4)
+- **Skill B**: [Modifier] (e.g., Arcana +6)
+- **Special Abilities**: [List of unique traits or powers]
 
-## 🛠️ Skills & Abilities
-*   **Skills:** A list of skills and their associated modifiers (e.g., Stealth (+3), Persuasion (+1)).
-*   **Equipment:** Inventory and starting gear.
+## 🎭 Narrative Persona
+- **Appearance**: [Detailed sensory description]
+- **Core Motivations**: [What drives this character?]
+- **Personality Quirks**: [Speech patterns, habits, flaws]
+- **Backstory Summary**: [Brief history influencing current behavior]
 
-## 🎭 Example
-
-**Name:** Kaelen Shadowbrook
-**Race/Class:** Half-Elf Rogue
-**Stats:** STR 10, DEX 16, CON 12, INT 14, WIS 10, CHA 12
-**Appearance:** Lean build, dark cloak, perpetually watchful eyes.
-**Personality:** Cynical, highly resourceful, loyal to coin.
-**Skills:** Stealth (+3), Persuasion (+1).
-**Equipment:** Thieves' tools, shortbow, 10 gold pieces.
+## 🎒 Equipment & Inventory
+- **Primary Weapon**: [Name/Damage/Type]
+- **Key Items**: [List of significant possessions]
+- **Currency**: [Amount]
 
 ---
-*Last updated: 2026-06-09*
+*Ground Truth Version 1.0*

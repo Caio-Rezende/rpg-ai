@@ -1,27 +1,33 @@
-# Location Template
+# 🗺️ Location Ground Truth Template
 
-## 🗺️ Location Description
+This document defines a geographical or conceptual space. It provides the "environmental state" that agents must reference when describing actions or searching for items.
 
-This template is used to describe a setting or area within the game world. It should provide enough detail for the AI to generate vivid descriptions while also providing mechanical hooks for the DM.
+## 📋 Location Metadata
+- **ID**: `loc_[unique_id]`
+- **Name**: [Location Name]
+- **Type**: [e.g., Urban, Wild, Dungeon, Planar]
+- **Scale**: [e.g., Small Room, Sprawling City]
 
-## 📍 Fields
+## 👁️ Sensory Profile
+- **Visuals**: [Detailed description of sights]
+- **Auditory**: [Dominant sounds or silence]
+- **Olfactory**: [Dominant smells]
+- **Atmosphere**: [Emotional tone: e.g., Oppressive, Ethereal, Vibrant]
 
-*   **Name:** The common name of the location.
-*   **Description:** A detailed, sensory description (sights, sounds, smells).
-*   **Atmosphere:** The emotional tone of the location (e.g., foreboding, bustling, serene).
-*   **Key Features:** Notable points of interest or environmental hazards.
-    *   *Example:* A rickety bridge (DC 12 Dexterity check to cross).
-*   **Resources:** Any useful items or services available (e.g., a general store, a clean water source).
-*   **Potential Hooks:** Ideas for encounters or plot points related to this location.
+## 📍 Features & Interactivity
+| Feature | Mechanical Hook | Effect/Reward |
+| :--- | :--- | :--- |
+| [Feature Name] | [e.g., DC 15 Perception] | [e.g., Finds hidden lever] |
+| [Hazard Name] | [e.g., DC 12 Agility] | [e.g., Avoids pit trap] |
 
-## 🖼️ Example
+## 📦 Resources & Points of Interest
+- **Key NPCs**: [References to `char_[id]` typically found here]
+- **Available Services**: [e.g., Blacksmith, Arcane Library]
+- **Loot Tables**: [References to potential rewards]
 
-**Name:** The Whispering Market
-**Description:** A sprawling, covered market filled with the scent of exotic spices and unwashed bodies. Sunlight struggles to penetrate the canvas awnings, casting the stalls in a perpetual twilight.
-**Atmosphere:** Suspenseful, chaotic.
-**Key Features:** A suspicious-looking merchant stall (potential source of rumors), a narrow alleyway perfect for eavesdropping.
-**Resources:** A reputable (if expensive) apothecary.
-**Potential Hooks:** A stolen artifact, a secret meeting.
+## 🎣 Narrative Hooks
+- **Current Conflict**: [What is happening here right now?]
+- **Hidden Secrets**: [Information the DM knows but characters must discover]
 
 ---
-*Last updated: 2026-06-09*
+*Ground Truth Version 1.0*

@@ -1,0 +1,154 @@
+{
+  "session_id": "adventure-1",
+  "started_at": "2026-06-11T10:50:38.991662",
+  "last_updated": "2026-06-17T02:17:18.793206",
+  "scene": {
+    "name": "Village Under Siege",
+    "phase": "combat",
+    "description": "8 houses in the village, Hollow Walkers at nearly every door. 2 houses on the brink of being invaded. Heroes approach from the forest. Initiative rolled. 2 undead at critical houses made notice checks."
+  },
+  "characters": {
+    "Bram": {
+      "hp_current": 12,
+      "hp_max": 12,
+      "spell_slots": {
+        "1st": 0
+      },
+      "conditions": [
+        "Bless"
+      ],
+      "notes": "Used Cure Wounds on Pip (10 healing)"
+    },
+    "Pip": {
+      "hp_current": 5,
+      "hp_max": 11,
+      "spell_slots": {},
+      "conditions": [
+        "Bless",
+        "Bloodied"
+      ],
+      "notes": "Revived by Bram's Cure Wounds. Lost Round 4 turn recovering."
+    },
+    "Sariel": {
+      "hp_current": 7,
+      "hp_max": 9,
+      "spell_slots": {
+        "1st": 2
+      },
+      "conditions": [
+        "Bless"
+      ],
+      "notes": "Delivered final blow with Sacred Flame"
+    }
+  },
+  "allies": [
+    {
+      "name": "Priest",
+      "role": "Divine ally \u2014 invoked goddess, dealt 14 radiant to all undead. Standing aside, praying."
+    }
+  ],
+  "combat": {
+    "active": false,
+    "round": 4,
+    "initiative_order": [],
+    "current_turn": 0,
+    "enemies": []
+  },
+  "turn_log": [
+    {
+      "round": 1,
+      "combatant": "Bram",
+      "action": "Cast Bless"
+    },
+    {
+      "round": 1,
+      "combatant": "Sariel",
+      "action": "Sacred Flame \u2192 Walker #1: 6 radiant"
+    },
+    {
+      "round": 1,
+      "combatant": "Pip",
+      "action": "Stealth failed"
+    },
+    {
+      "round": 1,
+      "combatant": "Enemies",
+      "action": "Close to melee range"
+    },
+    {
+      "round": 2,
+      "combatant": "Bram",
+      "action": "Longsword \u2192 Walker #4: 6 slashing"
+    },
+    {
+      "round": 2,
+      "combatant": "Sariel",
+      "action": "Sacred Flame \u2192 Walker #2: 2 radiant (doubled)"
+    },
+    {
+      "round": 2,
+      "combatant": "Pip",
+      "action": "Shortsword \u2192 Walker #4: 5 piercing"
+    },
+    {
+      "round": 2,
+      "combatant": "HW#3\u2192Sariel",
+      "action": "Clutch HIT, 2 necrotic"
+    },
+    {
+      "round": 2,
+      "combatant": "HW#4",
+      "action": "Clutch MISS vs Sariel"
+    },
+    {
+      "round": 2,
+      "combatant": "HW#1\u2192Pip",
+      "action": "Clutch HIT, 4 necrotic"
+    },
+    {
+      "round": 2,
+      "combatant": "HW#2",
+      "action": "Clutch MISS vs Bram"
+    },
+    {
+      "round": 3,
+      "combatant": "Priest",
+      "action": "Divine light: 14 radiant. Walkers 1, 2, 4 destroyed. Priest stands aside."
+    },
+    {
+      "round": 3,
+      "combatant": "Bram",
+      "action": "Longsword \u2192 Walker #1: HIT, 2 slashing. Destroyed."
+    },
+    {
+      "round": 3,
+      "combatant": "Sariel",
+      "action": "Sacred Flame \u2192 Walker #2: HIT, 7 radiant. Destroyed."
+    },
+    {
+      "round": 3,
+      "combatant": "Pip",
+      "action": "Shortsword \u2192 Walker #3: MISS"
+    },
+    {
+      "round": 3,
+      "combatant": "HW#3\u2192Pip",
+      "action": "Clutch CRIT! 12 necrotic. Pip unconscious."
+    },
+    {
+      "round": 4,
+      "combatant": "Bram",
+      "action": "Cure Wounds \u2192 Pip: 10 healing. Pip revived to 5 HP."
+    },
+    {
+      "round": 4,
+      "combatant": "Pip",
+      "action": "Recovering from unconsciousness, loses turn."
+    },
+    {
+      "round": 4,
+      "combatant": "Sariel",
+      "action": "Sacred Flame \u2192 Walker #3: HIT, 7 radiant. Destroyed. Combat ends."
+    }
+  ]
+}
